@@ -4,6 +4,10 @@ mod person;
 mod refcell;
 mod list;
 mod ref_t;
+mod node;
+mod drop;
+mod deref;
+mod rc;
 
 fn main() {
     let x = 42;

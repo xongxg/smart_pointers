@@ -1,3 +1,5 @@
+use std::sync::Mutex;
+
 #[derive(Debug, Clone, Copy)]
 struct Point {
     x: i32,
@@ -120,4 +122,25 @@ fn test_ref_t4() {
         let y = x.borrow();
         println!("{:?}", y);
     }
+}
+
+struct Settings {
+    api_key: Option<String>,
+}
+
+#[test]
+fn test_ref_t5() {
+    let value = Mutex::new(Settings {
+        api_key: Some("some-key".into()),
+    });
+
+    let guard = value.lock().unwrap();
+    match guard.api_key {
+        Some(ref key) => println!("key is {}", key),
+        None => (),
+    }
+    println!(
+        "guard still in scope and will be dropped: {:?}",
+        guard.api_key
+    );
 }
