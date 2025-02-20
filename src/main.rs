@@ -8,6 +8,8 @@ mod node;
 mod drop;
 mod deref;
 mod rc;
+mod lifetime;
+mod cow;
 
 fn main() {
     let x = 42;
