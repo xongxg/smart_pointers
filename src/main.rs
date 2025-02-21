@@ -10,6 +10,9 @@ mod deref;
 mod rc;
 mod lifetime;
 mod cow;
+mod intoiter;
+mod iter;
+mod inheritance;
 
 fn main() {
     let x = 42;
